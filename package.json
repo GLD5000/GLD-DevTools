@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "clear && next dev",
+    "dev:host": "next dev -H 192.168.1.215",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:ui": "clear && vitest --coverage --ui",
+    "test": "clear && vitest --coverage",
+    "test:once": "clear && vitest --run",
+    "format": "clear && prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
+    "lint:fix": "clear && prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write && eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:all": "clear && prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write && eslint src --ext .js,.jsx,.ts,.tsx --fix && tsc"
   },
   "dependencies": {
     "@types/node": "20.4.2",
@@ -25,6 +32,7 @@
   },
   "devDependencies": {
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "prettier": "3.0.0"
   }
 }
