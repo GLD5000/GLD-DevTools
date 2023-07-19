@@ -8,6 +8,7 @@ export default function Home() {
           GLD API Hub
         </p>
         <Link href="/api/client">See Your Computer Information</Link>
+        <Link href="/api/timestamp">Get the Current Time and Date</Link>
       </div>
     </main>
   );
