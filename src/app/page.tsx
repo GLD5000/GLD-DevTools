@@ -13,6 +13,9 @@ export default function Home() {
           <Link href="/api/timestamp/06/09/2022">
             Get the MM/DD/YYYY: 06/09/2022 Time and Date
           </Link>
+          <Link href="/api/timestamp/?date=07/04/2022">
+            Get the MM/DD/YYYY: 07/04/2002 Time and Date
+          </Link>
           <Link href="/api/timestamp/1654729200000">
             Get the UNIX: 1654729200000 Time and Date
           </Link>

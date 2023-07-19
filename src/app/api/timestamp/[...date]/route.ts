@@ -15,7 +15,7 @@ function processDateString(input: string) {
     if (!dateFromNumInvalid) return dateFromNum;
   }
 
-  const dateFromStr = new Date(isArray ? input.join("/") : input);
+  const dateFromStr = new Date(isArray ? `${input.join("/")}/08:00` : input);
   const dateFromStrInvalid = dateFromStr.toString() === "Invalid Date";
   return dateFromStrInvalid ? new Date() : dateFromStr;
 }
