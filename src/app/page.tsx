@@ -8,16 +8,39 @@ export default function Home() {
           GLD API Hub
         </p>
         <div className="grid gap-4">
-          <Link href="/api/client">See Your Computer Information</Link>
-          <Link href="/api/timestamp">Get the Current Time and Date</Link>
-          <Link href="/api/timestamp/06/09/2022">
+          <Link target="_blank" referrerPolicy="no-referrer" href="/api/client">
+            See Your Computer Information
+          </Link>
+          <Link
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="/api/timestamp"
+          >
+            Get the Current Time and Date
+          </Link>
+          <Link
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="/api/timestamp/06/09/2022"
+          >
             Get the MM/DD/YYYY: 06/09/2022 Time and Date
           </Link>
-          <Link href="/api/timestamp/?date=07/04/2022">
+          <Link
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="/api/timestamp/?date=07/04/2022"
+          >
             Get the MM/DD/YYYY: 07/04/2002 Time and Date
           </Link>
-          <Link href="/api/timestamp/1654729200000">
+          <Link
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="/api/timestamp/1654729200000"
+          >
             Get the UNIX: 1654729200000 Time and Date
+          </Link>
+          <Link target="_blank" referrerPolicy="no-referrer" href="/parsers">
+            Parsers
           </Link>
         </div>
       </div>
