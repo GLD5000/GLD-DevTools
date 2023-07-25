@@ -2,4 +2,4 @@
 
 ## Access various Microservices and APIs here!
 
-[See Your Computer Information](/api/client)
+### [gld-dev-services.vercel.app](https://gld-dev-services.vercel.app/)
