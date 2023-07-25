@@ -8,7 +8,12 @@ export default function Home() {
           GLD API Hub
         </p>
         <div className="grid gap-4">
-          <Link target="_blank" referrerPolicy="no-referrer" href="/api/client">
+          <Link
+            target="_blank"
+            referrerPolicy="no-referrer"
+            href="/api/client"
+            prefetch={false}
+          >
             See Your Computer Information
           </Link>
           <Link
