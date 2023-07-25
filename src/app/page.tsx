@@ -11,7 +11,7 @@ export default function Home() {
           <Link
             target="_blank"
             referrerPolicy="no-referrer"
-            href="/api/client"
+            href="/client"
             prefetch={false}
           >
             See Your Computer Information
@@ -19,7 +19,7 @@ export default function Home() {
           <Link
             target="_blank"
             referrerPolicy="no-referrer"
-            href="/api/timestamp"
+            href="/timestamp"
             prefetch={false}
           >
             Get the Current Time and Date
@@ -27,7 +27,7 @@ export default function Home() {
           <Link
             target="_blank"
             referrerPolicy="no-referrer"
-            href="/api/timestamp/06/09/2022"
+            href="/timestamp/06/09/2022"
             prefetch={false}
           >
             Get the MM/DD/YYYY: 06/09/2022 Time and Date
@@ -35,7 +35,7 @@ export default function Home() {
           <Link
             target="_blank"
             referrerPolicy="no-referrer"
-            href="/api/timestamp/?date=07/04/2022"
+            href="/timestamp/?date=07/04/2022"
             prefetch={false}
           >
             Get the MM/DD/YYYY: 07/04/2002 Time and Date
@@ -43,12 +43,12 @@ export default function Home() {
           <Link
             target="_blank"
             referrerPolicy="no-referrer"
-            href="/api/timestamp/1654729200000"
+            href="/timestamp/1654729200000"
             prefetch={false}
           >
             Get the UNIX: 1654729200000 Time and Date
           </Link>
-          <Link target="_blank" referrerPolicy="no-referrer" href="/parsers">
+          <Link target="_blank" referrerPolicy="no-referrer" href="/gfmtable">
             Parsers
           </Link>
         </div>
