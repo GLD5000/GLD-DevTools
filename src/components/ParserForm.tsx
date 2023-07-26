@@ -3,9 +3,11 @@
 import { useState } from "react";
 
 export default function ParserForm({
+  parserTitle,
   parsingFunction,
   placeholderText = "Paste your string here...",
 }: {
+  parserTitle: string;
   parsingFunction: string;
   placeholderText?: string;
 }) {
@@ -25,6 +27,7 @@ export default function ParserForm({
   }
   return (
     <div className="w-fit h-fit m-auto p-10 grid gap-4">
+      <h2 className="text-4xl font-bold">{parserTitle}</h2>
       <pre>{`method: POST,
 body: {text: text}
 path: https://gld-dev-services.vercel.app/parser/${parsingFunction}/`}</pre>

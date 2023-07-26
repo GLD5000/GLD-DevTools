@@ -48,7 +48,7 @@ export default function Home() {
           >
             Get the UNIX: 1654729200000 Time and Date
           </Link>
-          <Link target="_blank" referrerPolicy="no-referrer" href="/gfmtable">
+          <Link target="_blank" referrerPolicy="no-referrer" href="/parsers">
             Parsers
           </Link>
         </div>
