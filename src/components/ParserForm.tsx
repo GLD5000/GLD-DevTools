@@ -33,9 +33,8 @@ path: https://gld-dev-services.vercel.app/parser/${parsingFunction}/`}</pre>
         name="input"
         placeholder={placeholderText}
         onInput={(e) => setInput(e.currentTarget.value)}
-      >
-        {input}
-      </textarea>
+        value={input}
+      />
       <button type="button" onClick={handleParse}>
         Parse
       </button>
