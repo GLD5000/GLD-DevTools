@@ -35,7 +35,7 @@ function backwardsLinearSearch({
   }
 ```
 
-2. Binary search
+3. Binary search
 
 - Time complexity O(log n) - logarithmic AKA divide and conquer
 - Only works on sorted arrays
@@ -62,7 +62,7 @@ function binarySearch(orderedArray, searchValue) {
 }
 ```
 
-3. Jump Search
+4. Jump Search
 
 - Time Complexity O(sqrt(N)) - sub-linear
 - Not as good as binary for sorted arrays - impractical
