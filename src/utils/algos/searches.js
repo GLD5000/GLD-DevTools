@@ -1,42 +1,36 @@
-const arrayToSearch = [
-  1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5,
-  5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 10,
-  10, 11, 12,
-];
-
-function jumpSearchWithLogs(orderedArray, searchValue) {
+export function jumpSearchWithLogs({ array, searchValue }) {
   let iterations = 0;
-  const jumpSize = Math.floor(Math.sqrt(orderedArray.length));
+  const jumpSize = Math.floor(Math.sqrt(array.length));
   let jumper = jumpSize;
 
-  while (jumper < orderedArray.length - 1) {
+  while (jumper < array.length - 1) {
     iterations += 1;
-    if (orderedArray[jumper] === searchValue) {
+    if (array[jumper] === searchValue) {
       return backwardsLinearSearchWithLogs({
-        array: orderedArray,
+        array,
         searchValue,
         currentIndex: jumper,
         iterations,
       });
     }
-    if (orderedArray[jumper] > searchValue) {
+    if (array[jumper] > searchValue) {
       break;
     } else {
       jumper += jumpSize;
     }
   }
   jumper -= jumpSize;
-  for (let i = jumper; i < orderedArray.length; i += 1) {
+  for (let i = jumper; i < array.length; i += 1) {
     iterations += 1;
-    if (orderedArray[i] === searchValue) {
+    if (array[i] === searchValue) {
       return backwardsLinearSearchWithLogs({
-        array: orderedArray,
+        array,
         searchValue,
         currentIndex: i,
         iterations,
       });
     }
-    if (orderedArray[i] > searchValue) {
+    if (array[i] > searchValue) {
       console.log(
         "iterations:",
         iterations,
@@ -62,78 +56,78 @@ function jumpSearchWithLogs(orderedArray, searchValue) {
   return -1;
 }
 
-// function jumpSearch(orderedArray, searchValue) {
-//   const jumpSize = Math.floor(Math.sqrt(orderedArray.length));
-//   let jumper = jumpSize;
+export function jumpSearch({ array, searchValue }) {
+  const jumpSize = Math.floor(Math.sqrt(array.length));
+  let jumper = jumpSize;
 
-//   while (jumper < orderedArray.length - 1) {
-//     if (orderedArray[jumper] === searchValue) {
-//       return backwardsLinearSearch({
-//         array: orderedArray,
-//         searchValue,
-//         currentIndex: jumper,
-//       });
-//     } else if (orderedArray[jumper] > searchValue) {
-//       break;
-//     } else {
-//       jumper += jumpSize;
-//     }
-//   }
-//   jumper -= jumpSize;
-//   for (let i = jumper; i < orderedArray.length; i += 1) {
-//     if (orderedArray[i] === searchValue) {
-//       return backwardsLinearSearch({
-//         array: orderedArray,
-//         searchValue,
-//         currentIndex: i,
-//       });
-//     } else if (orderedArray[i] > searchValue) {
-//       return -1;
-//     }
-//   }
-//   return -1;
-// }
-for (let i = 0; i <= Math.max(...arrayToSearch); i += 1) {
-  jumpSearchWithLogs(arrayToSearch, i);
+  while (jumper < array.length - 1) {
+    if (array[jumper] === searchValue) {
+      return backwardsLinearSearch({
+        array,
+        searchValue,
+        currentIndex: jumper,
+      });
+    }
+    if (array[jumper] > searchValue) {
+      break;
+    } else {
+      jumper += jumpSize;
+    }
+  }
+  jumper -= jumpSize;
+  for (let i = jumper; i < array.length; i += 1) {
+    if (array[i] === searchValue) {
+      return backwardsLinearSearch({
+        array,
+        searchValue,
+        currentIndex: i,
+      });
+    }
+    if (array[i] > searchValue) {
+      return -1;
+    }
+  }
+  return -1;
 }
 
-// function binarySearch(orderedArray, searchValue) {
-//   let left = 0;
-//   let right = orderedArray.length - 1;
+export function binarySearch({ array, searchValue }) {
+  let left = 0;
+  let right = array.length - 1;
 
-//   while (left <= right) {
-//     const mid = Math.floor((left + right) / 2);
-//     if (orderedArray[mid] === searchValue) {
-//       return backwardsLinearSearch({
-//         array: orderedArray,
-//         searchValue,
-//         currentIndex: mid,
-//       });
-//     } else if (orderedArray[mid] < searchValue) {
-//       left = mid + 1;
-//     } else {
-//       right = mid - 1;
-//     }
-//   }
-//   return -1;
-// }
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (array[mid] === searchValue) {
+      return backwardsLinearSearch({
+        array,
+        searchValue,
+        currentIndex: mid,
+      });
+    }
+    if (array[mid] < searchValue) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+}
 
-// function backwardsLinearSearch({
-//   array,
-//   searchValue,
-//   currentIndex = searchValue.length - 1,
-// }) {
-//   for (let i = currentIndex; i > -1; i -= 1) {
-//     if (array[i] === searchValue && (array[i - 1] !== searchValue || i === 0)) {
-//       return i;
-//     }
-//   }
-//   return -1;
-// }
-function backwardsLinearSearchWithLogs({
+export function backwardsLinearSearch({
   array,
   searchValue,
-  currentIndex = searchValue.length - 1,
+  currentIndex = array.length - 1,
+}) {
+  for (let i = currentIndex; i > -1; i -= 1) {
+    if (array[i] === searchValue && (array[i - 1] !== searchValue || i === 0)) {
+      return i;
+    }
+  }
+  return -1;
+}
+export function backwardsLinearSearchWithLogs({
+  array,
+  searchValue,
+  currentIndex = array.length - 1,
   iterations = 0,
 }) {
   let iterationCount = iterations;
@@ -162,23 +156,23 @@ function backwardsLinearSearchWithLogs({
   return -1;
 }
 
-function binarySearchWithLogs(orderedArray, searchValue) {
+export function binarySearchWithLogs({ array, searchValue }) {
   let iterations = 0;
   let left = 0;
-  let right = orderedArray.length - 1;
+  let right = array.length - 1;
 
   while (left <= right) {
     iterations += 1;
     const mid = Math.floor((left + right) / 2);
-    if (orderedArray[mid] === searchValue) {
+    if (array[mid] === searchValue) {
       return backwardsLinearSearchWithLogs({
-        array: orderedArray,
+        array,
         searchValue,
         currentIndex: mid,
         iterations,
       });
     }
-    if (orderedArray[mid] < searchValue) {
+    if (array[mid] < searchValue) {
       left = mid + 1;
     } else {
       right = mid - 1;
@@ -194,8 +188,4 @@ function binarySearchWithLogs(orderedArray, searchValue) {
   );
 
   return -1;
-}
-
-for (let i = 0; i <= Math.max(...arrayToSearch); i += 1) {
-  binarySearchWithLogs(arrayToSearch, i);
 }
