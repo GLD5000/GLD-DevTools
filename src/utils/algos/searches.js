@@ -189,3 +189,14 @@ export function binarySearchWithLogs({ array, searchValue }) {
 
   return -1;
 }
+
+export function arraysMatch(arrayA, arrayB) {
+  return arrayA.every(
+    (value, index) => value === arrayB[Math.min(index, arrayB.length - 1)],
+  );
+}
+
+export function arrayIsSubset(array, subsetCandidate) {
+  return subsetCandidate.every((value) => array.includes(value));
+}
+// Array is ordered subset
