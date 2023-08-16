@@ -18,8 +18,8 @@ return -1;
 
 - Time complexity O(log n) - logarithmic AKA divide and conquer
 - Only works on sorted arrays
-- Goes the mid point run comparison
-- Discards irrelevant half
+- Goes to mid point run comparison
+- Ignores irrelevant half
 - Goes to the mid point of the remaining subarray and repeats comparison etc.
 
 ```
