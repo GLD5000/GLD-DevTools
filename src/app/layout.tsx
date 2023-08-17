@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GLD API Hub",
+  title: "GLD DevServices",
   description: "A collection of useful APIs and utilities for Web Devs",
 };
 
