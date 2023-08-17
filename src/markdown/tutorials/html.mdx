@@ -2,22 +2,40 @@
 
 ## The anatomy of a page
 
-## The unseen
+## Part 1: The unseen
 
 The parts of a page you cannot see include:
 
-- DocType
+- [DocType](#DocType)
+- Comments
 - HTML Tags
-- Head Tags
+- Head Section
 - Style Tags
 - Script Tags
 
+### DocType
+Tells the browser the type of document to expect. In HTML5, simply put 'html':
+```
+<!DOCTYPE html> 
+```
+For older versions of HTML, [more info was needed](https://www.w3schools.com/tags/tag_doctype.asp)
+
+### Comments
+Comments allow you to have words in HTML that do not run as code.
+#### Example:
+```
+<!-- This is a comment -->
+```
+
+
 ### HTML Tags
+#### Example:
+ ```
+ <!--Sets the language to English and text direction to "Left to Right"-->
 
-> `<html lang="en" dir="ltr"> ... </html>`
-> Sets the language to English and text direction to "Left to Right"
-
-These tags denote the HTML document and can have global attributes e.g:
+ <html lang="en" dir="ltr"> ... </html>
+ ```
+#### These tags denote the HTML document and can have global attributes e.g:
 
 - [accesskey](https://html.spec.whatwg.org/multipage/interaction.html#the-accesskey-attribute)
 - [autocapitalize](https://html.spec.whatwg.org/multipage/interaction.html#attr-autocapitalize)
@@ -43,3 +61,7 @@ These tags denote the HTML document and can have global attributes e.g:
 - [tabindex](https://html.spec.whatwg.org/multipage/interaction.html#attr-tabindex)
 - [title](https://html.spec.whatwg.org/multipage/dom.html#attr-title)
 - [translate](https://html.spec.whatwg.org/multipage/dom.html#attr-translate)
+
+### Head Section
+
+[Back to Top](#top)
