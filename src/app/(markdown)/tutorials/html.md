@@ -14,7 +14,8 @@ The parts of a page you cannot see include:
 
 ### HTML Tags
 
-`<html lang="en" dir="ltr"> ... </html>`
+> `<html lang="en" dir="ltr"> ... </html>`
+> Sets the language to English and text direction to "Left to Right"
 
 These tags denote the HTML document and can have global attributes e.g:
 
