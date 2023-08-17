@@ -10,9 +10,10 @@ export default function A({
   href: string;
   children: ReactNode;
 }) {
-  const pushLink = href[0] === "#";
+  const scrollLink = href[0] === "#";
+  const internalLink = href[0] === "/";
 
-  if (pushLink) {
+  if (scrollLink) {
     return (
       <a
         href={href}
@@ -21,6 +22,17 @@ export default function A({
       >
         {children}
       </a>
+    );
+  }
+  if (internalLink) {
+    return (
+      <Link
+        href={href}
+        id={`${children}`}
+        className="underline underline-offset-4 hover:transition hover:underline-offset-2 focus:transition focus:underline-offset-2"
+      >
+        {children}
+      </Link>
     );
   }
   return (
