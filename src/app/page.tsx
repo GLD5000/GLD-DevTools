@@ -2,22 +2,31 @@ import Tutorials from "@/markdown/tutorials/allTutorials.mdx";
 import Apis from "@/markdown/apis/allApis.mdx";
 import Parsers from "@/markdown/parsers/allParsers.mdx";
 import Contents from "@/markdown/landingPage/mainContents.mdx";
+import Templates from "@/markdown/landingPage/templateLinks.mdx";
+import MdxWrapper from "@/components/markdownComponents/MdxWrapper";
 
 export default function Home() {
   return (
     <main className="grid w-full justify-center h-screen gap-20 items-center p-24 overflow-y-scroll smooth-scroll-gld">
-      <div className="w-full h-fit max-w-[1000px] sm:px-8 xl:px-0 prose prose-base sm:prose-lg lg:prose-xl prose-invert px-2">
+      <MdxWrapper>
         <Contents />
-      </div>
-      <div className="w-full h-fit max-w-[1000px] sm:px-8 xl:px-0 prose prose-base sm:prose-lg lg:prose-xl prose-invert px-2">
+      </MdxWrapper>
+
+      <MdxWrapper>
+        <Templates />
+      </MdxWrapper>
+
+      <MdxWrapper>
         <Tutorials />
-      </div>
-      <div className="w-full h-fit max-w-[1000px] sm:px-8 xl:px-0 prose prose-base sm:prose-lg lg:prose-xl prose-invert px-2">
+      </MdxWrapper>
+
+      <MdxWrapper>
         <Apis />
-      </div>
-      <div className="w-full h-fit max-w-[1000px] sm:px-8 xl:px-0 prose prose-base sm:prose-lg lg:prose-xl prose-invert px-2">
+      </MdxWrapper>
+
+      <MdxWrapper>
         <Parsers />
-      </div>
+      </MdxWrapper>
     </main>
   );
 }
