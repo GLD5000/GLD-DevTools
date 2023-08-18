@@ -17,7 +17,7 @@ export default function A({
     return (
       <a
         href={href}
-        id={`${children}`}
+        // id={`${children}`}
         className="underline underline-offset-4 hover:transition hover:underline-offset-2 focus:transition focus:underline-offset-2 cursor-pointer"
       >
         {children}
@@ -28,7 +28,7 @@ export default function A({
     return (
       <Link
         href={href}
-        id={`${children}`}
+        // id={`${children}`}
         className="underline underline-offset-4 hover:transition hover:underline-offset-2 focus:transition focus:underline-offset-2"
       >
         {children}
@@ -38,7 +38,7 @@ export default function A({
   return (
     <Link
       href={href}
-      id={`${children}`}
+      // id={`${children}`}
       className="underline underline-offset-4 hover:transition hover:underline-offset-2 focus:transition focus:underline-offset-2"
       target="_blank"
       referrerPolicy="no-referrer"
