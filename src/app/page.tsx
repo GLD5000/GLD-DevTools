@@ -3,6 +3,7 @@ import Apis from "@/markdown/apis/allApis.mdx";
 import Parsers from "@/markdown/parsers/allParsers.mdx";
 import Contents from "@/markdown/landingPage/mainContents.mdx";
 import Templates from "@/markdown/landingPage/templateLinks.mdx";
+import Tools from "@/markdown/landingPage/toolsLinks.mdx";
 import MdxWrapper from "@/components/markdownComponents/MdxWrapper";
 
 export default function Home() {
@@ -14,6 +15,10 @@ export default function Home() {
 
       <MdxWrapper>
         <Templates />
+      </MdxWrapper>
+
+      <MdxWrapper>
+        <Tools />
       </MdxWrapper>
 
       <MdxWrapper>
