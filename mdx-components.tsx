@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { H1, H2, H3, A, Code } from "@/components/markdownComponents";
+import { H1, H2, H3, H4, A, Code } from "@/components/markdownComponents";
 import type { MDXComponents } from "mdx/types";
 
 // This file allows you to provide custom React components
@@ -15,6 +15,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => <H1>{children}</H1>,
     h2: ({ children }) => <H2>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
+    h4: ({ children }) => <H4>{children}</H4>,
     pre: ({ children }) => <Code>{children}</Code>,
     a: ({ href, children }) => <A href={`${href}`}>{children}</A>,
     ...components,
