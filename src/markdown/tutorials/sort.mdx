@@ -17,6 +17,18 @@ Simple, but inefficient. Repeatedly swap adjacent elements.
 - Big O Time Complexity O(n^2)	
 - Big O Space Complexity O(1)	
 ```
+function bubbleSort(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
 ```
 ### Insertion Sort
 Builds the final sorted array one element at a time.
@@ -24,6 +36,19 @@ Builds the final sorted array one element at a time.
 - Big O Time Complexity O(n^2)	
 - Big O Space Complexity O(1)	
 ```
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let key = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+  return arr;
+}
+
 ```
 ### Selection Sort
 Repeatedly selects the minimum element and swaps with current position.
@@ -31,6 +56,20 @@ Repeatedly selects the minimum element and swaps with current position.
 - Big O Time Complexity O(n^2)	
 - Big O Space Complexity O(1)	
 ```
+function selectionSort(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    let minIndex = i;
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+    [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+  }
+  return arr;
+}
+
 ```
 ### Quick Sort
 Divide and conquer approach. Fastest in practice for random data.
@@ -38,6 +77,28 @@ Divide and conquer approach. Fastest in practice for random data.
 - Big O Time Complexity O(n^2)	
 - Big O Space Complexity O(log n)	
 ```
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = partition(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+function partition(arr, left, right) {
+  let pivot = arr[right];
+  let i = left - 1;
+  for (let j = left; j < right; j++) {
+    if (arr[j] < pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+  return i + 1;
+}
+
 ```
 ### Bucket Sort
 Distributes elements into buckets and sorts each bucket.
@@ -45,6 +106,34 @@ Distributes elements into buckets and sorts each bucket.
 - Big O Time Complexity O(n^2)	
 - Big O Space Complexity O(n)	
 ```
+function bucketSort(arr, bucketSize = 5) {
+  if (arr.length === 0) {
+    return arr;
+  }
+
+  let minValue = Math.min(...arr);
+  let maxValue = Math.max(...arr);
+
+  let bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+  let buckets = new Array(bucketCount);
+  for (let i = 0; i < bucketCount; i++) {
+    buckets[i] = [];
+  }
+
+  arr.forEach(num => {
+    let bucketIndex = Math.floor((num - minValue) / bucketSize);
+    buckets[bucketIndex].push(num);
+  });
+
+  let sortedArray = [];
+  buckets.forEach(bucket => {
+    insertionSort(bucket);
+    sortedArray = sortedArray.concat(bucket);
+  });
+
+  return sortedArray;
+}
+
 ```
 ### Radix Sort
 Sorts by digits. Efficient for sorting integers.
@@ -52,6 +141,46 @@ Sorts by digits. Efficient for sorting integers.
 - Big O Time Complexity O(kn)
 - Big O Space Complexity O(n + k)	
 ```
+function getMax(arr) {
+  let max = arr[0];
+  arr.forEach(num => {
+    if (num > max) {
+      max = num;
+    }
+  });
+  return max;
+}
+
+function countingSortForRadix(arr, exp) {
+  let output = new Array(arr.length).fill(0);
+  let count = new Array(10).fill(0);
+
+  arr.forEach(num => {
+    count[Math.floor(num / exp) % 10]++;
+  });
+
+  for (let i = 1; i < 10; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+    count[Math.floor(arr[i] / exp) % 10]--;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = output[i];
+  }
+}
+
+function radixSort(arr) {
+  let max = getMax(arr);
+  for (let exp = 1; Math.floor(max / exp) > 0; exp *= 10) {
+    countingSortForRadix(arr, exp);
+  }
+  return arr;
+}
+
 ```
 ### Counting Sort
 Sorts by counting occurrences of each element.
@@ -59,6 +188,24 @@ Sorts by counting occurrences of each element.
 - Big O Time Complexity O(n + k)	
 - Big O Space Complexity O(n + k)	
 ```
+function countingSort(arr) {
+  let max = Math.max(...arr);
+  let countArray = new Array(max + 1).fill(0);
+
+  arr.forEach(num => {
+    countArray[num]++;
+  });
+
+  let sortedArray = [];
+  countArray.forEach((count, num) => {
+    for (let i = 0; i < count; i++) {
+      sortedArray.push(num);
+    }
+  });
+
+  return sortedArray;
+}
+
 ```
 ### Merge Sort
 Divide and conquer approach. Efficient for large datasets.
@@ -66,11 +213,75 @@ Divide and conquer approach. Efficient for large datasets.
 - Big O Time Complexity O(n log n)	
 - Big O Space Complexity O(n)	
 ```
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+function merge(left, right) {
+  let result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+
 ```
 ### Heap Sort
 Builds a binary heap and repeatedly extracts the maximum.
 - Average Time Complexity O(n log n)	
 - Big O Time Complexity O(n log n)	
+- Big O Space Complexity O(1)
 ```
-```- Big O Space Complexity O
-(1)	
+function heapify(arr, n, i) {
+  let largest = i;
+  let left = 2 * i + 1;
+  let right = 2 * i + 2;
+
+  if (left < n && arr[left] > arr[largest]) {
+    largest = left;
+  }
+
+  if (right < n && arr[right] > arr[largest]) {
+    largest = right;
+  }
+
+  if (largest !== i) {
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapify(arr, n, largest);
+  }
+}
+
+function heapSort(arr) {
+  let n = arr.length;
+
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+    heapify(arr, n, i);
+  }
+
+  for (let i = n - 1; i > 0; i--) {
+    [arr[0], arr[i]] = [arr[i], arr[0]];
+    heapify(arr, i, 0);
+  }
+
+  return arr;
+}
+
+```	
