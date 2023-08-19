@@ -1,0 +1,118 @@
+# Big O Complexity
+
+- Fastest
+- [O(1)](#O(1))
+- [O(log n)](#O(logn))
+- [O(n)](#O(n))
+- [O(n log n)](#O(nlogn))
+- [O(n^2)](#O(n^2))
+- [O(2^n)](#O(2^n))
+- [O(n!)](#O(n!))
+- Slowest
+
+## O(1)
+Big of of One or constant time does not increase with the size of the data set. 
+#### Time
+No matter how big a set, the time to run should be roughly the same.
+#### Space
+The function will add a fixed amount to the memory requirements when running.
+#### Example - Access
+```
+function getElementAtIndex(array, index) {
+    return array[index];
+}
+
+const myArray = [10, 20, 30, 40, 50];
+const element = getElementAtIndex(myArray, 2);
+
+```
+## O(log n)
+
+Divide and conquer algorithms that split the work in two recursively will have this complexity.
+
+#### Time
+As the size of a set increases the time requirements increase logarithmically (sub-linearly) meaning the performance relative to a linear algorithm improves as the data set grows.
+#### Space
+Will need logarithmically increasing space as the data set grows.
+#### Example - Binary Search
+```
+function binarySearch(array, target) {
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (array[mid] === target) {
+            return mid;
+        } else if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+```
+## O(n)
+
+#### Time
+
+
+#### Space
+
+#### Example - Access
+```
+
+
+```
+## O(n log n)
+
+#### Time
+
+
+#### Space
+
+#### Example - Access
+```
+
+
+```
+## O(n^2)
+
+#### Time
+
+
+#### Space
+
+#### Example - Access
+```
+
+
+```
+## O(2^n)
+
+#### Time
+
+
+#### Space
+
+#### Example - Access
+```
+
+
+```
+## O(n!)
+
+#### Time
+
+
+#### Space
+
+#### Example - Access
+```
+
+
+```
