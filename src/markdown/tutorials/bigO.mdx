@@ -70,7 +70,7 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Access
+#### Example - Linear Search
 ```
 
 
@@ -82,7 +82,7 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Access
+#### Example - Merge Sort
 ```
 
 
@@ -94,7 +94,7 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Access
+#### Example - Bubble Sort
 ```
 
 
@@ -107,9 +107,14 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Access
+#### Example - Recursive Fibonacci Algorithm
 ```
-
+function fibonacciRecursive(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
 
 ```
 ## O(n!)
@@ -119,8 +124,37 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Access
+#### Example - Heap Permutations
 ```
+function generatePermutations(n) {
+  // Helper function to generate permutations recursively
+  function permuteHelper(currentPerm, remainingItems) {
+    // Base case: If no remaining items, add the current permutation to the result
+    if (remainingItems.length === 0) {
+      permutations.push(currentPerm.slice()); // Add a copy of the current permutation
+      return;
+    }
+
+    // Recursive case: Generate permutations by trying each remaining item as the next element
+    for (let i = 0; i < remainingItems.length; i++) {
+      const item = remainingItems[i]; // Take the current item to add to the permutation
+      const newPerm = currentPerm.concat(item); // Create a new permutation with the item added
+      const newRemaining = remainingItems.slice(0, i).concat(remainingItems.slice(i + 1));
+      // Recursively call with the new permutation and the remaining items
+      permuteHelper(newPerm, newRemaining);
+    }
+  }
+
+  // Create an array of numbers from 1 to n
+  const inputArray = Array.from({ length: n }, (_, i) => i + 1);
+  const permutations = []; // Array to store the generated permutations
+  permuteHelper([], inputArray); // Start the permutation generation with an empty current permutation
+  return permutations; // Return the array of permutations
+}
+
+const n = 3; // Set the value of n
+const result = generatePermutations(n); // Generate permutations for n
+console.log(result); // Output the result
 
 
 ```
