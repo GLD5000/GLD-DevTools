@@ -1,20 +1,19 @@
 /* eslint-disable no-param-reassign */
 function heapPermutation(data, n) {
-  const dataCopy = [...data];
   if (n < 2) {
-    console.log("Return Row", dataCopy);
+    console.log("Return Row", data);
     return;
   }
 
   for (let i = 0; i < n; i += 1) {
-    console.log("heapPermutation(dataCopy, n - 1):", dataCopy, n - 1);
-    heapPermutation(dataCopy, n - 1);
+    console.log("heapPermutation(data, n - 1):", data, n - 1);
+    heapPermutation(data, n - 1);
     if (n % 2 === 0) {
-      console.log("even swap dataCopy[i], dataCopy[n - 1]", i, n - 1);
-      [dataCopy[i], dataCopy[n - 1]] = [dataCopy[n - 1], dataCopy[i]]; // Swap elements
+      console.log("even swap data[i], data[n - 1]", i, n - 1);
+      [data[i], data[n - 1]] = [data[n - 1], data[i]]; // Swap elements
     } else {
-      console.log("odd swap dataCopy[0], dataCopy[n - 1]", 0, n - 1);
-      [dataCopy[0], dataCopy[n - 1]] = [dataCopy[n - 1], dataCopy[0]]; // Swap elements
+      console.log("odd swap data[0], data[n - 1]", 0, n - 1);
+      [data[0], data[n - 1]] = [data[n - 1], data[0]]; // Swap elements
     }
   }
 }
