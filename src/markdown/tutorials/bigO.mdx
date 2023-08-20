@@ -21,7 +21,7 @@ Big O of 1 or 'constant time' does not increase with the size of the data set.
 #### Time
 No matter how big a set, the time to run should be roughly the same.
 #### Space
-The function will add a fixed amount to the memory requirements when running.
+The function will add a fixed amount to the memory requirements when running or will run using existing data structures only.
 #### Example - Access
 ```
 function getElementAtIndex(array, index) {
@@ -39,8 +39,6 @@ Divide and conquer algorithms that split the work in two recursively will have t
 
 #### Time
 As the size of a set increases the time requirements increase logarithmically (sub-linearly) meaning the performance relative to a linear algorithm improves as the data set grows.
-#### Space
-Will need logarithmically increasing space as the data set grows.
 #### Example - Binary Search
 ```
 function binarySearch(array, target) {
@@ -63,20 +61,58 @@ function binarySearch(array, target) {
 }
 
 ```
+#### Space
+Will need logarithmically increasing additional space as the data set grows.
+#### Example - Quick Sort
+```
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = partition(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+function partition(arr, left, right) {
+  let pivot = arr[right];
+  let i = left - 1;
+  for (let j = left; j < right; j++) {
+    if (arr[j] < pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+  return i + 1;
+}
+
+```
 ## O(n)
 ### Linear
-#### Time
+Any algorithm that loops through your entire data set will have at least linear time complexity.
+#### Time Example - Linear Search
+```
+function linearSearch(array) {
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] === searchValue) return i;
+  }
+  return -1;
+}
 
-
-#### Space
-
-#### Example - Linear Search
 ```
 
+#### Space Example - Doubling Array values 
 
 ```
+function doubleArrayValues(array){
+  const newArray = array.map(value => value * 2);
+  return newArray;
+}
+```
+
 ## O(n log n)
-### Super Linear
+### Super Linear or Linearithmic
 #### Time
 
 
@@ -84,7 +120,35 @@ function binarySearch(array, target) {
 
 #### Example - Merge Sort
 ```
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
 
+  const middle = Math.floor(arr.length / 2);
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+export function merge(left, right) {
+  const result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex += 1;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex += 1;
+    }
+  }
+
+  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
 
 ```
 ## O(n^2)
@@ -94,8 +158,45 @@ function binarySearch(array, target) {
 
 #### Space
 
-#### Example - Bubble Sort
+#### Example - Bubble Sort / Nested Loops
 ```
+function bubbleSort(arr) {
+  const n = arr.length;
+  for (let i = 0; i < n - 1; i += 1) {
+    for (let j = 0; j < n - i - 1; j += 1) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
+```
+## O(n^3)
+### Cubic
+#### Time
+
+
+#### Space
+
+#### Example - Triple Nested Loops
+```
+function cubicAlgorithm(inputArray) {
+    const n = inputArray.length;
+    
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            for (let k = 0; k < n; k++) {
+                // Some operation
+                console.log(inputArray[i], inputArray[j], inputArray[k]);
+            }
+        }
+    }
+}
+
+const input = [1, 2, 3, 4];
+cubicAlgorithm(input);
 
 
 ```
@@ -124,37 +225,22 @@ function fibonacciRecursive(n) {
 
 #### Space
 
-#### Example - Heap Permutations
+#### Example - Heap Algorithm Permutations
 ```
-function generatePermutations(n) {
-  // Helper function to generate permutations recursively
-  function permuteHelper(currentPerm, remainingItems) {
-    // Base case: If no remaining items, add the current permutation to the result
-    if (remainingItems.length === 0) {
-      permutations.push(currentPerm.slice()); // Add a copy of the current permutation
-      return;
-    }
-
-    // Recursive case: Generate permutations by trying each remaining item as the next element
-    for (let i = 0; i < remainingItems.length; i++) {
-      const item = remainingItems[i]; // Take the current item to add to the permutation
-      const newPerm = currentPerm.concat(item); // Create a new permutation with the item added
-      const newRemaining = remainingItems.slice(0, i).concat(remainingItems.slice(i + 1));
-      // Recursively call with the new permutation and the remaining items
-      permuteHelper(newPerm, newRemaining);
-    }
+function heapPermutation(data, n) {
+  console.count("called");
+  if (n < 2) {
+  console.count("returned");
+    return;
   }
 
-  // Create an array of numbers from 1 to n
-  const inputArray = Array.from({ length: n }, (_, i) => i + 1);
-  const permutations = []; // Array to store the generated permutations
-  permuteHelper([], inputArray); // Start the permutation generation with an empty current permutation
-  return permutations; // Return the array of permutations
+  for (let i = 0; i < n; i += 1) {
+    heapPermutation(data, n - 1);
+    if (n % 2 === 0) {
+      [data[i], data[n - 1]] = [data[n - 1], data[i]]; // Swap elements
+    } else {
+      [data[0], data[n - 1]] = [data[n - 1], data[0]]; // Swap elements
+    }
+  }
 }
-
-const n = 3; // Set the value of n
-const result = generatePermutations(n); // Generate permutations for n
-console.log(result); // Output the result
-
-
 ```
