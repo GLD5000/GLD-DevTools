@@ -1,17 +1,21 @@
 # Design Patterns
 ### Contents
+- [Creational](#Creational)
 - [Singleton](#Singleton)
 - [Prototype](#Prototype)
 - [Builder](#Builder)
 - [Factory](#Factory)
+- [Structural](#Structural)
 - [Facade](#Facade)
 - [Proxy](#Proxy)
+- [Behavioural](#Behavioural)
 - [Iterator](#Iterator)
 - [Observer](#Observer)
 - [Mediator](#Mediator)
 - [State](#State)
 
-## Singleton
+## Creational
+### Singleton
 An object that will only instantiate once so the same object can be reused throughout the application. For example a Prisma Client:
 ```
 import { PrismaClient } from "@prisma/client";
@@ -30,12 +34,23 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 export default prisma;
 ```
-## Prototype
-## Builder
-## Factory
-## Facade
-## Proxy
-## Iterator
-## Observer
-## Mediator
-## State
+### Prototype
+Alternative to typical class to sub-class inheritance. You create an object and assign it an existing object as the prototype, giving you access to its properties and methods. Useful for similar objects with a lot of shared state and minimal differences.
+### Builder
+Object composition, build complex series of varying objects by chaining functions that add to 'this' and return 'this'. Useful for building sets of objects with many differences or options.
+### Factory
+Instead of building with classes and the new keyword. Create factory functions that return objects or classes. Useful for creating different objects with a common interface.
+## Structural
+### Facade
+Creation of a simplified interface to consolidate mutliple interfaces from sub systems and obscure unnecessary complexity.
+### Proxy
+Substitute an object or function with another to allow middleware or middleware behaviour between a client and the real object.
+## Behavioural
+### Iterator
+Traversing objects or collections in sequence.
+### Observer
+Often used as publisher - subscriber. Allows a number of observers to be notified of state changes in an object.
+### Mediator
+A component that manages communications between multiple objects.
+### State
+This can be done by creating a class with a default state and action and an update state method. The class or object can have a pre determined but extensible set of behaviours based on give states and can switch easily between states. For example a calculator that performs different operations to incoming numbers based on the last pressed calculation button.
