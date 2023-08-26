@@ -30,7 +30,7 @@ export default function ParserForm({
       <h2 className="text-4xl font-bold">{parserTitle}</h2>
       <pre>{`method: POST,
 body: {text: text}
-path: https://gld-dev-services.vercel.app/parser/${parsingFunction}/`}</pre>
+path: https://gld-dev-tools.vercel.app/parser/${parsingFunction}/`}</pre>
       <textarea
         className="text-black max-w-[80vw] min-w-[280px] resize"
         name="input"
