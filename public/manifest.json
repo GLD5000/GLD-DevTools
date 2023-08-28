@@ -1,9 +1,9 @@
 {
   "manifest_version": "3",
   "version": "0.1",
-  "short_name": "GLD Portfolio",
-  "name": "GLD Portfolio",
-  "description": "View my portfolio projects, see my source code and get in touch with me.",
+  "short_name": "GLD DevTools",
+  "name": "GLD DevTools",
+  "description": "A collection of useful APIs and utilities for Web Devs.",
   "icons": [
     {
       "src": "GLD144.png",
