@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Parsers from "@/markdown/parsers/allParsers.mdx";
+import MdxWrapper from "./markdownComponents/MdxWrapper";
 
 export default function ParserForm({
   parserTitle,
@@ -27,6 +29,10 @@ export default function ParserForm({
   }
   return (
     <div className="w-fit h-fit m-auto p-10 grid gap-4">
+      <MdxWrapper>
+        <Parsers />
+      </MdxWrapper>
+
       <h2 className="text-4xl font-bold">{parserTitle}</h2>
       <pre>{`method: POST,
 body: {text: text}

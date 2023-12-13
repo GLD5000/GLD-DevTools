@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import tsvToGfmTable from "@/utils/parseTsvToGfmTable";
 import tsvToMdBulletPoints from "@/utils/parseTsvToMdBulletPoints";
+import parseTsvToJsonArray from "@/utils/parseTsvToJsonArray";
 
 /* eslint-disable import/prefer-default-export */
 
@@ -26,6 +27,10 @@ export async function POST(
   if (type === "tsvToMdBulletPoints")
     return new Response(
       JSON.stringify({ data: tsvToMdBulletPoints(text), status: 200 }),
+    );
+  if (type === "tsvToJsonArray")
+    return new Response(
+      JSON.stringify({ data: parseTsvToJsonArray(text), status: 200 }),
     );
 
   return new Response(
