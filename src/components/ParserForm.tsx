@@ -38,7 +38,7 @@ export default function ParserForm({
 body: {text: text}
 path: https://gld-dev-tools.vercel.app/parser/${parsingFunction}/`}</pre>
       <textarea
-        className="text-black max-w-[80vw] min-w-[280px] resize"
+        className="text-black w-full max-w-[1000px] min-w-[280px] resize"
         name="input"
         placeholder={placeholderText}
         onInput={(e) => setInput(e.currentTarget.value)}
@@ -50,7 +50,9 @@ path: https://gld-dev-tools.vercel.app/parser/${parsingFunction}/`}</pre>
       <button type="button" onClick={handleCopy}>
         Copy
       </button>
-      <pre>{output}</pre>
+      <p className="w-full max-w-[1000px] text-ellipsis line-clamp-3 overflow-hidden">
+        {output}
+      </p>
     </div>
   );
 }
