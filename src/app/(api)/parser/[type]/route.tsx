@@ -33,7 +33,7 @@ export async function POST(
     return new Response(
       JSON.stringify({ data: parseTsvToJsonArray(text), status: 200 }),
     );
-    if (type === "parseTsvToJsonObject")
+  if (type === "parseTsvToJsonObject")
     return new Response(
       JSON.stringify({ data: parseTsvToJsonObject(text), status: 200 }),
     );

@@ -7,14 +7,19 @@ function objectifyTsv(tableData: string) {
   return objectArray;
 }
 
-function createObjectObject(objectValueStrings: string[], objectKeys: string[]) {
+function createObjectObject(
+  objectValueStrings: string[],
+  objectKeys: string[],
+) {
   const returnObject: { [key: string]: Record<string, string> } = {};
   objectValueStrings.forEach((objectValueString) => {
-    const newObject = makeNewObject(
-      objectValueString.trim(),
-      objectKeys,
-    );
-    const newKey = Object.values(newObject)[0].replaceAll(/(\/.+\/)/g, "").replaceAll('-', '').replaceAll('%2D', '-').replaceAll('%5F', '_').replaceAll(/(.jpg)|(.jpeg)|(.png)|(.mp4)/g, '');
+    const newObject = makeNewObject(objectValueString.trim(), objectKeys);
+    const newKey = Object.values(newObject)[0]
+      .replaceAll(/(\/.+\/)/g, "")
+      .replaceAll("-", "")
+      .replaceAll("%2D", "-")
+      .replaceAll("%5F", "_")
+      .replaceAll(/(.jpg)|(.jpeg)|(.png)|(.mp4)/g, "");
     returnObject[newKey] = newObject;
   });
   return returnObject;
