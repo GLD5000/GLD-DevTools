@@ -14,7 +14,7 @@ function createObjectObject(objectValueStrings: string[], objectKeys: string[]) 
       objectValueString.trim(),
       objectKeys,
     );
-    const newKey = Object.values(newObject)[0].replaceAll(/(\/.+\/)/g,"").replaceAll('-','').replaceAll('%2D','-').replaceAll('%5F','_').replaceAll(/(.jpg)|(.jpeg)|(.png)|(.mp4)/g,'')
+    const newKey = Object.values(newObject)[0].replaceAll(/(\/.+\/)/g,"").replaceAll('-','').replaceAll('%2D','-').replaceAll('%5F','_').replaceAll(/(.jpg)|(.jpeg)|(.png)|(.mp4)/g,'');
     returnObject[newKey] = newObject;
   });
   return returnObject;
