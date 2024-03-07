@@ -26,7 +26,7 @@ function createObjectObject(
 }
 
 function makeNewObject(objectValueString: string, objectKeys: string[]) {
-  const valueArray = objectValueString.trim().split(/[\t,]/);
+  const valueArray = objectValueString.trim().split(/[\t]/);
   const returnObject: Record<string, string> = {};
   valueArray.forEach((value, index) => {
     returnObject[`${objectKeys[index]}`] = value
