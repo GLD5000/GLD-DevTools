@@ -17,7 +17,7 @@ function createObjectObject(
     const newKey = Object.values(newObject)[0]
       .replaceAll(/(\/.+\/)/g, "")
       .replaceAll("-", "")
-      .replaceAll("%2D", "-")
+      .replaceAll(/(%2D)|(%20)/g, "-")
       .replaceAll("%5F", "_")
       .replaceAll(/(.jpg)|(.jpeg)|(.png)|(.mp4)/g, "");
     returnObject[newKey] = newObject;
