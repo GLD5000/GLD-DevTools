@@ -2,7 +2,7 @@ function objectifyTsv(tableData: string) {
   const [headerString, ...objectValueStrings] = tableData
     .replaceAll("﻿", "")
     .split(/[\r\n]+/);
-  const objectKeys = headerString.replaceAll(/[ ]/g, "").split(/[\t,]/);
+  const objectKeys = headerString.replaceAll(/[ ]/g, "").split(/\t/);
   const objectArray = createObjectObject(objectValueStrings, objectKeys);
   return objectArray;
 }

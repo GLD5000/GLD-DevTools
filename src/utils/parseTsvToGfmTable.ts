@@ -29,5 +29,5 @@ function createGfmRows(rowArrays: string[][]) {
 }
 function splitCells(input: string) {
   const rows = input.split(/[\r\n]+/);
-  return rows.map((row) => row.split(/[\t,]/));
+  return rows.map((row) => row.split(/\t/));
 }
