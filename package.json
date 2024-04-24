@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "clear && next dev",
     "dev:host": "next dev -H 192.168.1.215",
     "build": "next build",
