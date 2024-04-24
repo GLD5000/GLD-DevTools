@@ -3,6 +3,7 @@ import tsvToGfmTable from "@/utils/parseTsvToGfmTable";
 import tsvToMdBulletPoints from "@/utils/parseTsvToMdBulletPoints";
 import parseTsvToJsonArray from "@/utils/parseTsvToJsonArray";
 import parseTsvToJsonObject from "@/utils/parseTsvToJsonObject";
+import textToParagraphArray from "@/utils/parseTextToParagraph";
 
 /* eslint-disable import/prefer-default-export */
 
@@ -21,6 +22,10 @@ export async function POST(
   const { text } = body;
   const { type } = params;
 
+  if (type === "textToParagraphArray")
+    return new Response(
+      JSON.stringify({ data: textToParagraphArray(text), status: 200 }),
+    );
   if (type === "tsvToGfmTable")
     return new Response(
       JSON.stringify({ data: tsvToGfmTable(text), status: 200 }),
