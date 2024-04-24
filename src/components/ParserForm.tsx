@@ -43,6 +43,7 @@ path: https://gld-dev-tools.vercel.app/parser/${parsingFunction}/`}</pre>
         placeholder={placeholderText}
         onInput={(e) => setInput(e.currentTarget.value)}
         value={input}
+        onBlur={handleParse}
       />
       <button type="button" onClick={handleParse}>
         Parse
