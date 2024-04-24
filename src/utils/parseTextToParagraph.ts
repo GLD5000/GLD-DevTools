@@ -1,3 +1,4 @@
 export default function textToParagraphArray(textIn: string) {
-  return `["${textIn.replaceAll(/( *[\r\n]{1,})+/g, '","')}"]`;
+  const quotationMarks = `","`;
+  return `["${textIn.replaceAll(/( *[\r\n]{1,})+/g, quotationMarks)}"]`;
 }
