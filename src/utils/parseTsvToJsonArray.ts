@@ -9,7 +9,6 @@ function objectifyTsv(tableData: string) {
   }
 
   const [headerString, ...objectValueStrings] = tableData
-    .replaceAll("﻿", "")
     .replaceAll(quotedSection, replaceLinebreaks)
     .split(/[\r\n]+/);
   const objectKeys = headerString.replaceAll(/[ ]/g, "").split(/\t/);
@@ -36,8 +35,6 @@ function makeNewObject(objectValueString: string, objectKeys: string[]) {
     returnObject[`${objectKeys[index]}`] = value
       .trim()
       .replaceAll("||LineBreak||", "\n")
-      .replaceAll(",", ", ")
-      .replaceAll(",  ", ", ");
   });
   return returnObject;
 }
