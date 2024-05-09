@@ -34,7 +34,7 @@ function makeNewObject(objectValueString: string, objectKeys: string[]) {
   valueArray.forEach((value, index) => {
     returnObject[`${objectKeys[index]}`] = value
       .trim()
-      .replaceAll("||LineBreak||", "\n")
+      .replaceAll("||LineBreak||", "\n");
   });
   return returnObject;
 }
