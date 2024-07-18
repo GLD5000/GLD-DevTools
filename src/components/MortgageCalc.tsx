@@ -3,12 +3,21 @@
 import { useEffect, useState } from "react";
 // import Parsers from "@/markdown/parsers/allParsers.mdx";
 // import MdxWrapper from "./markdownComponents/MdxWrapper";
-import { getQueryParams, updateQueryParams } from "@/utils/urlQueryParams";
+import {
+  clearQueryParams,
+  getQueryParams,
+  updateQueryParams,
+} from "@/utils/urlQueryParams";
+import { PMTAsString } from "@/utils/mortgageFormulae";
+
+const defaultPrincipal = 200000;
+const defaultTerm = 30;
+const defaultRate = 5;
 
 export default function MortgageCalc() {
-  const [principal, setPrincipal] = useState(0);
-  const [term, setTerm] = useState(0);
-  const [rate, setRate] = useState(0);
+  const [principal, setPrincipal] = useState(defaultPrincipal);
+  const [term, setTerm] = useState(defaultTerm);
+  const [rate, setRate] = useState(defaultRate);
 
   useEffect(() => {
     let run = true;
@@ -33,7 +42,7 @@ export default function MortgageCalc() {
     <div>
       <h2>Mortgage Calculator</h2>
       <label>
-        Principal Amount:
+        Principal Amount £:
         <input
           className="text-black placeholder:text-black bg-[#f0f0f0]"
           type="number"
@@ -65,8 +74,16 @@ export default function MortgageCalc() {
         />
       </label>
       <br />
-      {/* <button onClick={calculatePayment}>Calculate Payment</button>
-      <p>Monthly Payment: ${monthlyPayment.toFixed(2)}</p> */}
+      <button type="button" onClick={handleClear}>
+        Reset
+      </button>
+      <p>Monthly Payment: £{PMTAsString(rate, term, principal)}</p>
     </div>
   );
+  function handleClear() {
+    clearQueryParams();
+    setPrincipal(defaultPrincipal);
+    setTerm(defaultTerm);
+    setRate(defaultRate);
+  }
 }
