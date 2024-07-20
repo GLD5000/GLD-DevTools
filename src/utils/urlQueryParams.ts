@@ -19,7 +19,8 @@ export function clearQueryParams() {
   const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
 
   // Replace the current history entry with the new URL
-  window.history.replaceState({}, "", newUrl);
+  // window.history.replaceState({}, "", newUrl);
+  window.location.href = newUrl;
 }
 
 export function getQueryParams() {
