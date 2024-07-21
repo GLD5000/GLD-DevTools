@@ -1,5 +1,6 @@
 import { indexToLetter } from "@/utils/urlQueryParams";
 import MortgageInput from "./MortgageInput";
+import MortgageOutput from "./MortgageOutput";
 
 export default function MortgageRate({
   scenarioIndex,
@@ -35,6 +36,11 @@ export default function MortgageRate({
           title={`ft${mortgageSuffix}`}
           defaultValue={5}
           unit="yrs"
+        />
+        <MortgageOutput
+          message="Monthly Cost"
+          scenarioIndex={scenarioIndex}
+          mortgageIndex={mortgageIndex}
         />
       </div>
     </div>

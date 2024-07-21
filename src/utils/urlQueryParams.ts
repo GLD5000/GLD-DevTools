@@ -74,3 +74,9 @@ export function hardReplaceQueryParams(paramsObject: {
   // window.history.replaceState({}, "", newUrl);
   window.location.href = newUrl;
 }
+
+export function deleteQueryParams(key: string) {
+  const currentParams = getQueryParams();
+  delete currentParams[encodeURIComponent(key)];
+  replaceQueryParams(currentParams);
+}

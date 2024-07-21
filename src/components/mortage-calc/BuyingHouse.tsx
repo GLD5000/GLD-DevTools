@@ -52,6 +52,12 @@ export default function BuyingHouse({
         title={`sf${scenarioIndex}`}
         defaultValue={10000}
       />
+      <ScenarioOutput
+        message="Stamp Duty"
+        type="stamp"
+        scenarioIndex={scenarioIndex}
+      />
+
       <MortgageInput
         message="House Price"
         title={`hp${scenarioIndex}`}
