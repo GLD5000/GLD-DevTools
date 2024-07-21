@@ -8,12 +8,14 @@ export default function MortgageInput({
   title,
   defaultValue,
   isString = false,
+  unit = "£",
   children,
 }: {
   message: string;
   title: string;
   defaultValue: number | string;
   isString?: boolean;
+  unit?: string;
   children?: ReactNode;
 }) {
   const [state, setState] = useState(defaultValue);
@@ -30,15 +32,18 @@ export default function MortgageInput({
       if (parameter && !isString) {
         setState(Number(parameter));
       }
+      if (!parameter) {
+        updateQueryParams(title, `${defaultValue}`);
+      }
     }
     return () => {
       run = false;
     };
-  }, []);
+  }, [title, defaultValue, isString]);
   return (
     <>
       <label
-        className={`grid items-center p-0 ${
+        className={`grid gap-2 items-center p-0 ${
           isString
             ? "grid-cols-[1fr_auto] w-[min(100%,50rem)]"
             : "grid-cols-1 w-40"
@@ -55,13 +60,17 @@ export default function MortgageInput({
             onBlur={(e) => updateQueryParams(title, `${e.target.value}`)}
           />
         ) : (
-          <input
-            className="block m-0 text-black placeholder:text-black bg-[#f0f0f0] rounded w-40 p-1 text-center"
-            type="number"
-            value={state}
-            onChange={(e) => setState(Number(e.target.value))}
-            onBlur={(e) => updateQueryParams(title, `${e.target.value}`)}
-          />
+          <div className="flex gap-[2px] m-0 text-black placeholder:text-black bg-[#f0f0f0] rounded w-40 p-1 text-center">
+            {unit === "£" && unit}
+            <input
+              className="inline w-full bg-[#f0f0f0] px-[2px]"
+              type="number"
+              value={state}
+              onChange={(e) => setState(Number(e.target.value))}
+              onBlur={(e) => updateQueryParams(title, `${e.target.value}`)}
+            />
+            {unit !== "£" && unit}
+          </div>
         )}
       </label>
       {children}

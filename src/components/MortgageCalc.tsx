@@ -9,8 +9,7 @@ import {
   // updateQueryParams,
 } from "@/utils/urlQueryParams";
 // import { PMTAsString } from "@/utils/mortgageFormulae";
-import MortgageInput from "./MortgageInput";
-import Mortgage from "./Mortgage";
+import MortgageScenario from "./MortgageScenario";
 
 // const defaultPrincipal = 200000;
 // const defaultTerm = 30;
@@ -30,15 +29,7 @@ export default function MortgageCalc() {
   return (
     <div className="mx-auto max-w-[80rem] w-full grid gap-4">
       <h2>Mortgage Calculator</h2>
-
-      <MortgageInput
-        message="Principal Amount £"
-        title="principal"
-        defaultValue={5}
-      />
-      <MortgageInput message="Term (years)" title="term" defaultValue={5} />
-
-      <Mortgage scenarioIndex={0} mortgageIndex={0} />
+      <MortgageScenario scenarioIndex={0} />
       <br />
       <button
         className="bg-white text-black w-fit p-2 rounded hover:scale-105 transition"

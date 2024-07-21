@@ -1,7 +1,7 @@
 import { indexToLetter } from "@/utils/urlQueryParams";
 import MortgageInput from "./MortgageInput";
 
-export default function Mortgage({
+export default function MortgageRate({
   scenarioIndex,
   mortgageIndex,
 }: {
@@ -11,28 +11,30 @@ export default function Mortgage({
   const mortgageLetter = indexToLetter(mortgageIndex);
   const mortgageSuffix = `${scenarioIndex}${mortgageLetter}`;
   return (
-    <div className="grid gap-2 w-[50rem] justify-center">
+    <div className="grid gap-2 w-[50rem] justify-start">
       <MortgageInput
         message={`Mortgage  ${mortgageLetter}`}
-        title={`Mor${mortgageSuffix}`}
+        title={`m${mortgageSuffix}`}
         defaultValue={`Mortgage ${mortgageLetter}`}
         isString
       />
       <div className="flex flex-row flex-wrap gap-2">
         <MortgageInput
-          message="Interest Rate (%)"
-          title={`Rate${mortgageSuffix}`}
+          message="Interest Rate"
+          title={`r${mortgageSuffix}`}
+          defaultValue={5}
+          unit="%"
+        />
+        <MortgageInput
+          message="Product Fee"
+          title={`f${mortgageSuffix}`}
           defaultValue={5}
         />
         <MortgageInput
-          message="Fee (£)"
-          title={`Rate${mortgageSuffix}`}
+          message="Fixed Term"
+          title={`ft${mortgageSuffix}`}
           defaultValue={5}
-        />
-        <MortgageInput
-          message="Fixed Term (Years)"
-          title={`Rate${mortgageSuffix}`}
-          defaultValue={5}
+          unit="yrs"
         />
       </div>
     </div>
