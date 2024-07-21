@@ -99,7 +99,7 @@ export default function MortgageInput({
               type="number"
               value={state}
               onChange={(e) => setState(Number(e.target.value))}
-              onBlur={(e) => updateQueryParams(title, `${e.target.value}`)}
+              onBlur={(e) => hardUpdateQueryParams(title, `${e.target.value}`)}
             />
             {unit !== "£" && unit}
           </div>

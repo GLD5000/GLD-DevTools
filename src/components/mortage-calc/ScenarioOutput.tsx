@@ -7,18 +7,15 @@ export default function ScenarioOutput({
   type = "principal",
   message,
   scenarioIndex,
-  mortgageIndex,
   unit = "£",
 }: {
   type: string;
   message: string;
   scenarioIndex: number;
   unit?: string;
-  mortgageIndex?: number;
 }) {
   const [state, setState] = useState(0);
 
-  console.log("mortgageIndex:", mortgageIndex);
   useEffect(() => {
     const functionLookup: { [key: string]: () => number } = {
       principal: () => calculatePrincipal(scenarioIndex),
