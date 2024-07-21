@@ -1,6 +1,10 @@
 "use client";
 
-import { getQueryParameter, updateQueryParams } from "@/utils/urlQueryParams";
+import {
+  getQueryParameter,
+  hardUpdateQueryParams,
+  updateQueryParams,
+} from "@/utils/urlQueryParams";
 import { ReactNode, useEffect, useState } from "react";
 
 export default function MortgageInput({
@@ -8,6 +12,7 @@ export default function MortgageInput({
   title,
   defaultValue,
   isString = false,
+  selection,
   unit = "£",
   children,
 }: {
@@ -15,6 +20,7 @@ export default function MortgageInput({
   title: string;
   defaultValue: number | string;
   isString?: boolean;
+  selection?: string[];
   unit?: string;
   children?: ReactNode;
 }) {
@@ -24,12 +30,9 @@ export default function MortgageInput({
     let run = true;
     if (run && window) {
       const parameter = getQueryParameter(title);
-      console.log("parameter:", parameter);
-      if (parameter && isString) {
-        console.log("title:", title);
+      if (parameter && (isString || selection)) {
         setState(parameter);
-      }
-      if (parameter && !isString) {
+      } else if (parameter && !isString) {
         setState(Number(parameter));
       }
       if (!parameter) {
@@ -39,7 +42,36 @@ export default function MortgageInput({
     return () => {
       run = false;
     };
-  }, [title, defaultValue, isString]);
+  }, [title, defaultValue, isString, selection]);
+
+  if (selection) {
+    return (
+      <>
+        <label
+          className={`grid gap-2 items-center p-0 
+              grid-cols-[1fr_auto] w-[min(100%,50rem)]`}
+        >
+          {`${message}: `}
+          <select
+            className="block m-0 bg-black text-white placeholder:text-white bg-transparent border border-current rounded w-fit p-1 text-center ml-auto hover:invert focus:invert"
+            onChange={(e) => {
+              const current = `${e.target.value}`;
+              setState(current);
+              hardUpdateQueryParams(title, current);
+            }}
+            value={state}
+          >
+            {selection.map((optionName, number) => {
+              const key = `option-${number}`;
+              return <option key={key}>{optionName}</option>;
+            })}
+          </select>
+        </label>
+        {children}
+      </>
+    );
+  }
+
   return (
     <>
       <label

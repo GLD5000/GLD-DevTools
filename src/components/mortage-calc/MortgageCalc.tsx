@@ -8,8 +8,8 @@ import {
   // getQueryParams,
   // updateQueryParams,
 } from "@/utils/urlQueryParams";
-// import { PMTAsString } from "@/utils/mortgageFormulae";
 import MortgageScenario from "./MortgageScenario";
+// import { PMTAsString } from "@/utils/mortgageFormulae";
 
 // const defaultPrincipal = 200000;
 // const defaultTerm = 30;
