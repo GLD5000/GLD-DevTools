@@ -10,6 +10,7 @@ import {
 } from "@/utils/urlQueryParams";
 // import { PMTAsString } from "@/utils/mortgageFormulae";
 import MortgageInput from "./MortgageInput";
+import Mortgage from "./Mortgage";
 
 // const defaultPrincipal = 200000;
 // const defaultTerm = 30;
@@ -36,14 +37,14 @@ export default function MortgageCalc() {
         defaultValue={5}
       />
       <MortgageInput message="Term (years)" title="term" defaultValue={5} />
-      <MortgageInput
-        message="Interest Rate (% per year)"
-        title="rateA"
-        defaultValue={5}
-      />
-      <MortgageInput message="Interest Rate B" title="rateB" defaultValue={5} />
+
+      <Mortgage scenarioIndex={0} mortgageIndex={0} />
       <br />
-      <button type="button" onClick={handleClear}>
+      <button
+        className="bg-white text-black w-fit p-2 rounded hover:scale-105 transition"
+        type="button"
+        onClick={handleClear}
+      >
         Reset
       </button>
       <p>Monthly Payment: £</p>

@@ -33,8 +33,22 @@ export function getQueryParams() {
   return stringObject;
 }
 
+export function getQueryParameter(key: string) {
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  // const stringObject: { [key: string]: string } = {};
+  // Object.entries(params).forEach((entry) => {
+  //   stringObject[`${decodeURI(entry[0])}`] = `${decodeURI(entry[1])}`;
+  // });
+  return params[key];
+}
+
 export function updateQueryParams(key: string, value: string) {
   const currentParams = getQueryParams();
   currentParams[encodeURIComponent(key)] = encodeURIComponent(value);
   replaceQueryParams(currentParams);
+}
+
+export function indexToLetter(indexIn: number) {
+  return String.fromCharCode(indexIn + 65);
 }
