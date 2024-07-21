@@ -53,7 +53,7 @@ export default function MortgageInput({
         >
           {`${message}: `}
           <select
-            className="block m-0 bg-black text-white placeholder:text-white bg-transparent border border-current rounded w-fit p-1 text-center ml-auto hover:invert focus:invert"
+            className="block m-0 bg-black text-white border border-white rounded w-fit p-1 text-center ml-auto hover:invert focus:invert"
             onChange={(e) => {
               const current = `${e.target.value}`;
               setState(current);
@@ -63,7 +63,11 @@ export default function MortgageInput({
           >
             {selection.map((optionName, number) => {
               const key = `option-${number}`;
-              return <option key={key}>{optionName}</option>;
+              return (
+                <option key={key} className="text-white">
+                  {optionName}
+                </option>
+              );
             })}
           </select>
         </label>

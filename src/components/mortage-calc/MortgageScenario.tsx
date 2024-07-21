@@ -1,7 +1,7 @@
 import BuyingHouse from "./BuyingHouse";
 import MortgageInput from "./MortgageInput";
 import MortgageRate from "./MortgageRate";
-import MortgageTerm from "./MortgageTerm";
+import MortgageLoan from "./MortgageLoan";
 import SellingHouse from "./SellingHouse";
 
 export default function MortgageScenario({
@@ -26,7 +26,7 @@ export default function MortgageScenario({
         />
         <SellingHouse scenarioIndex={scenarioIndex} />
         <BuyingHouse scenarioIndex={scenarioIndex} />
-        <MortgageTerm scenarioIndex={scenarioIndex} />
+        <MortgageLoan scenarioIndex={scenarioIndex} />
         <MortgageRate scenarioIndex={0} mortgageIndex={0} />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { getQueryParameter, updateQueryParams } from "@/utils/urlQueryParams";
 import { useState, useEffect } from "react";
 import MortgageInput from "./MortgageInput";
+import ScenarioOutput from "./ScenarioOutput";
 
 export default function BuyingHouse({
   scenarioIndex,
@@ -27,15 +28,24 @@ export default function BuyingHouse({
 
   return (
     <div className="flex flex-row flex-wrap gap-2">
-      <MortgageInput
-        message="Deposit"
-        title={`d${scenarioIndex}`}
-        defaultValue={200000}
-      />
+      {currentType === "Buy" ? (
+        <MortgageInput
+          message="Deposit"
+          title={`d${scenarioIndex}`}
+          defaultValue={200000}
+        />
+      ) : (
+        <ScenarioOutput
+          type="deposit"
+          message="Deposit"
+          scenarioIndex={scenarioIndex}
+        />
+      )}
+
       <MortgageInput
         message="Extra Capital"
         title={`ec${scenarioIndex}`}
-        defaultValue={200000}
+        defaultValue={0}
       />
       <MortgageInput
         message="Solicitor Fees"

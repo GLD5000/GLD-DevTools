@@ -30,7 +30,7 @@ export default function SellingHouse({
       <MortgageInput
         message="Current Mortgage"
         title={`cm${scenarioIndex}`}
-        defaultValue={200000}
+        defaultValue={201851}
       />
       <MortgageInput
         message="Sale Price"

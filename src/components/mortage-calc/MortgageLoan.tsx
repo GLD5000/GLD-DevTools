@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import MortgageInput from "./MortgageInput";
 import ScenarioOutput from "./ScenarioOutput";
 
-export default function MortgageTerm({
+export default function MortgageLoan({
   scenarioIndex,
 }: {
   scenarioIndex: number;
