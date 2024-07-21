@@ -49,7 +49,7 @@ export default function MortgageInput({
       <>
         <label
           className={`grid gap-2 items-center p-0 
-              grid-cols-[1fr_auto] w-[min(100%,50rem)]`}
+              grid-cols-[1fr_auto] w-fit md:w-[min(100%,50rem)]`}
         >
           {`${message}: `}
           <select
@@ -81,7 +81,7 @@ export default function MortgageInput({
       <label
         className={`grid gap-2 items-center p-0 ${
           isString
-            ? "grid-cols-[1fr_auto] w-[min(100%,50rem)]"
+            ? "grid-cols-[1fr_auto] w-fit md:w-[min(100%,50rem)]"
             : "grid-cols-1 w-40"
         }`}
       >

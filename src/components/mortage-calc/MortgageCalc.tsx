@@ -38,7 +38,6 @@ export default function MortgageCalc() {
       >
         Reset
       </button>
-      <p>Monthly Payment: £</p>
     </div>
   );
   // function calculateRates() {

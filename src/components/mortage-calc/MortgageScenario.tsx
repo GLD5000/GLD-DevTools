@@ -11,7 +11,7 @@ export default function MortgageScenario({
 }) {
   return (
     <div className="mx-auto max-w-[80rem] w-full grid gap-4">
-      <div className="grid gap-2 w-[50rem] justify-start">
+      <div className="grid gap-2 max-w-[50rem] w-full justify-start">
         <MortgageInput
           message={`Scenario  ${scenarioIndex + 1}`}
           title={`s${scenarioIndex}`}

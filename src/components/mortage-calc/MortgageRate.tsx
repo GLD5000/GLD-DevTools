@@ -12,14 +12,14 @@ export default function MortgageRate({
   const mortgageLetter = indexToLetter(mortgageIndex);
   const mortgageSuffix = `${scenarioIndex}${mortgageLetter}`;
   return (
-    <div className="grid gap-2 w-[50rem] justify-start">
+    <div className="grid gap-2 md:w-[50rem] justify-start">
       <MortgageInput
         message={`Mortgage  ${mortgageLetter}`}
         title={`m${mortgageSuffix}`}
         defaultValue={`Mortgage ${mortgageLetter}`}
         isString
       />
-      <div className="flex flex-row flex-wrap gap-2">
+      <div className="flex flex-row flex-wrap gap-2 w-full">
         <MortgageInput
           message="Interest Rate"
           title={`r${mortgageSuffix}`}
