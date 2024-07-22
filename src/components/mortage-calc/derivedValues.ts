@@ -22,6 +22,19 @@ export function calculateLTV(scenarioIndex: number) {
 
   return Math.round((100 * principal) / housePrice);
 }
+export function calculateAgentFees(scenarioIndex: number) {
+  const salePrice = Number(getQueryParameter(`sp${scenarioIndex}`));
+  const agentFees =
+    salePrice * (Number(getQueryParameter(`af${scenarioIndex}`)) * 0.01);
+
+  return agentFees;
+}
+export function calculateSellingFees(scenarioIndex: number) {
+  return (
+    calculateAgentFees(scenarioIndex) +
+    Number(getQueryParameter(`cf${scenarioIndex}`))
+  );
+}
 
 export function calculatePrincipal(scenarioIndex: number) {
   deleteQueryParams(`p${scenarioIndex}`);

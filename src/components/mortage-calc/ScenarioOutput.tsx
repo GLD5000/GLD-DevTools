@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react";
 import {
+  calculateAgentFees,
   calculateDeposit,
   calculateLTV,
   calculatePrincipal,
+  calculateSellingFees,
   calculateStampDuty,
 } from "./derivedValues";
 
@@ -27,6 +29,8 @@ export default function ScenarioOutput({
       deposit: () => calculateDeposit(scenarioIndex),
       stamp: () => calculateStampDuty(scenarioIndex),
       ltv: () => calculateLTV(scenarioIndex),
+      agent: () => calculateAgentFees(scenarioIndex),
+      sell: () => calculateSellingFees(scenarioIndex),
     };
     let run = true;
     if (run && window && type) {
@@ -66,6 +70,8 @@ export default function ScenarioOutput({
       deposit: () => calculateDeposit(scenarioIndex),
       stamp: () => calculateStampDuty(scenarioIndex),
       ltv: () => calculateLTV(scenarioIndex),
+      agent: () => calculateAgentFees(scenarioIndex),
+      sell: () => calculateSellingFees(scenarioIndex),
     };
     const currentValue = functionLookup[type]();
     setState(currentValue || -Infinity);
