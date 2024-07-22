@@ -29,7 +29,7 @@ export default function MortgageRate({
         <MortgageInput
           message="Product Fee"
           title={`f${mortgageSuffix}`}
-          defaultValue={5}
+          defaultValue={1000}
         />
         <MortgageInput
           message="Fixed Term"

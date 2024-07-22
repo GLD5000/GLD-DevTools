@@ -56,7 +56,7 @@ export default function SellingHouse({
       />
       <ScenarioOutput
         type="sell"
-        message="Selling Fees"
+        message="Total Selling Fees"
         scenarioIndex={scenarioIndex}
       />
     </div>

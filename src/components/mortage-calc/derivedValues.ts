@@ -80,3 +80,10 @@ export function calculatePayment(scenarioIndex: number, mortgageIndex: number) {
   // if (newValue) updateQueryParams(`d${scenarioIndex}`, `${newValue}`);
   return newValue;
 }
+
+export function calculateBuyingFees(scenarioIndex: number) {
+  return (
+    calculateStampDuty(scenarioIndex) +
+    Number(getQueryParameter(`sf${scenarioIndex}`))
+  );
+}

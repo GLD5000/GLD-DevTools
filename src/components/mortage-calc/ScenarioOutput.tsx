@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import {
   calculateAgentFees,
+  calculateBuyingFees,
   calculateDeposit,
   calculateLTV,
   calculatePrincipal,
@@ -31,6 +32,7 @@ export default function ScenarioOutput({
       ltv: () => calculateLTV(scenarioIndex),
       agent: () => calculateAgentFees(scenarioIndex),
       sell: () => calculateSellingFees(scenarioIndex),
+      buy: () => calculateBuyingFees(scenarioIndex),
     };
     let run = true;
     if (run && window && type) {
@@ -72,6 +74,7 @@ export default function ScenarioOutput({
       ltv: () => calculateLTV(scenarioIndex),
       agent: () => calculateAgentFees(scenarioIndex),
       sell: () => calculateSellingFees(scenarioIndex),
+      buy: () => calculateBuyingFees(scenarioIndex),
     };
     const currentValue = functionLookup[type]();
     setState(currentValue || -Infinity);

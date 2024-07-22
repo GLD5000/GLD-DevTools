@@ -57,6 +57,11 @@ export default function BuyingHouse({
         type="stamp"
         scenarioIndex={scenarioIndex}
       />
+      <ScenarioOutput
+        message="Total Buying Fees"
+        type="buy"
+        scenarioIndex={scenarioIndex}
+      />
 
       <MortgageInput
         message="House Price"
