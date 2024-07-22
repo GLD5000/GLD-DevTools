@@ -34,7 +34,7 @@ export default function MortgageRate({
         <MortgageInput
           message="Fixed Term"
           title={`ft${mortgageSuffix}`}
-          defaultValue={5}
+          defaultValue={3}
           unit="yrs"
         />
         <MortgageOutput

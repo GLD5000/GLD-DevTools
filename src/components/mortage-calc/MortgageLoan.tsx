@@ -8,7 +8,7 @@ export default function MortgageLoan({
 }: {
   scenarioIndex: number;
 }) {
-  const [currentType, SetCurrentType] = useState("");
+  const [currentType, SetCurrentType] = useState("Loan");
   useEffect(() => {
     let run = true;
     if (run && window) {
@@ -31,7 +31,7 @@ export default function MortgageLoan({
         <MortgageInput
           message="Loan Amount"
           title={`p${scenarioIndex}`}
-          defaultValue={500000}
+          defaultValue={201851}
         />
       ) : (
         <ScenarioOutput
@@ -51,9 +51,9 @@ export default function MortgageLoan({
       <MortgageInput
         message="Loan Term"
         title={`t${scenarioIndex}`}
-        defaultValue={25}
+        defaultValue={30}
         unit="yrs"
-      />{" "}
+      />
     </div>
   );
 }

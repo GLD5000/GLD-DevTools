@@ -8,7 +8,7 @@ export default function BuyingHouse({
 }: {
   scenarioIndex: number;
 }) {
-  const [currentType, SetCurrentType] = useState("");
+  const [currentType, SetCurrentType] = useState("Loan");
   useEffect(() => {
     let run = true;
     if (run && window) {
