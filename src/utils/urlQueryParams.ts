@@ -39,7 +39,7 @@ export function getQueryParameter(key: string) {
   // Object.entries(params).forEach((entry) => {
   //   stringObject[`${decodeURI(entry[0])}`] = `${decodeURI(entry[1])}`;
   // });
-  return params[key];
+  return decodeURI(params[key]);
 }
 
 export function updateQueryParams(key: string, value: string) {
