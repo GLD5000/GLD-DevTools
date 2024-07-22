@@ -40,12 +40,14 @@ export default function MortgageLoan({
           scenarioIndex={scenarioIndex}
         />
       )}
-      <ScenarioOutput
-        type="ltv"
-        message="Loan to Value (LTV)"
-        unit="%"
-        scenarioIndex={scenarioIndex}
-      />
+      {currentType !== "Loan" && (
+        <ScenarioOutput
+          type="ltv"
+          message="Loan to Value (LTV)"
+          unit="%"
+          scenarioIndex={scenarioIndex}
+        />
+      )}
       <MortgageInput
         message="Loan Term"
         title={`t${scenarioIndex}`}

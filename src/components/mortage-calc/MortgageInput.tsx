@@ -31,7 +31,7 @@ export default function MortgageInput({
     if (run && window) {
       const parameter = getQueryParameter(title);
       if (parameter && (isString || selection)) {
-        setState(parameter);
+        setState(decodeURI(parameter));
       } else if (parameter && !isString) {
         setState(Number(parameter));
       }
