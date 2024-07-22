@@ -31,7 +31,7 @@ export default function MortgageLoan({
         <MortgageInput
           message="Loan Amount"
           title={`p${scenarioIndex}`}
-          defaultValue={201851}
+          defaultValue={200236}
         />
       ) : (
         <ScenarioOutput
@@ -51,7 +51,7 @@ export default function MortgageLoan({
       <MortgageInput
         message="Loan Term"
         title={`t${scenarioIndex}`}
-        defaultValue={30}
+        defaultValue={23}
         unit="yrs"
       />
     </div>

@@ -37,6 +37,11 @@ export default function MortgageRate({
           defaultValue={3}
           unit="yrs"
         />
+        <MortgageInput
+          message="Overpayment"
+          title={`op${mortgageSuffix}`}
+          defaultValue={0}
+        />
         <MortgageOutput
           message="Monthly Cost"
           scenarioIndex={scenarioIndex}

@@ -68,8 +68,9 @@ export function calculatePayment(scenarioIndex: number, mortgageIndex: number) {
   const fixedTerm = Number(getQueryParameter(`ft${mortgageSuffix}`));
   const productFee = Number(getQueryParameter(`f${mortgageSuffix}`));
   const monthlyProductFee = productFee / fixedTerm / 12;
+  const overPayment = Number(getQueryParameter(`op${mortgageSuffix}`));
   const pmt = PMT(rate * 0.01, term, principal);
-  const newValue = Math.round(monthlyProductFee + pmt);
+  const newValue = Math.round(monthlyProductFee + pmt + overPayment);
   // if (newValue) updateQueryParams(`d${scenarioIndex}`, `${newValue}`);
   return newValue;
 }
