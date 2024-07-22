@@ -47,7 +47,6 @@ export default function SellingHouse({
         message="Conveyance Fees"
         title={`cf${scenarioIndex}`}
         defaultValue={1600}
-        unit="%"
       />
     </div>
   );
