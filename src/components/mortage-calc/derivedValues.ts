@@ -29,12 +29,6 @@ export function calculateAgentFees(scenarioIndex: number) {
 
   return agentFees;
 }
-export function calculateSellingFees(scenarioIndex: number) {
-  return (
-    calculateAgentFees(scenarioIndex) +
-    Number(getQueryParameter(`cf${scenarioIndex}`))
-  );
-}
 
 export function calculatePrincipal(scenarioIndex: number) {
   deleteQueryParams(`p${scenarioIndex}`);
@@ -74,16 +68,27 @@ export function calculatePayment(scenarioIndex: number, mortgageIndex: number) {
   const fixedTerm = Number(getQueryParameter(`ft${mortgageSuffix}`));
   const productFee = Number(getQueryParameter(`f${mortgageSuffix}`));
   const monthlyProductFee = productFee / fixedTerm / 12;
-  const newValue = Math.round(
-    monthlyProductFee + PMT(rate * 0.01, term, principal),
-  );
+  const pmt = PMT(rate * 0.01, term, principal);
+  const newValue = Math.round(monthlyProductFee + pmt);
   // if (newValue) updateQueryParams(`d${scenarioIndex}`, `${newValue}`);
   return newValue;
+}
+export function calculateSellingFees(scenarioIndex: number) {
+  return (
+    calculateAgentFees(scenarioIndex) +
+    Number(getQueryParameter(`cf${scenarioIndex}`))
+  );
 }
 
 export function calculateBuyingFees(scenarioIndex: number) {
   return (
     calculateStampDuty(scenarioIndex) +
     Number(getQueryParameter(`sf${scenarioIndex}`))
+  );
+}
+
+export function calculateAllFees(scenarioIndex: number) {
+  return (
+    calculateBuyingFees(scenarioIndex) + calculateSellingFees(scenarioIndex)
   );
 }

@@ -50,7 +50,7 @@ export default function SellingHouse({
         scenarioIndex={scenarioIndex}
       />
       <MortgageInput
-        message="Conveyance Fees"
+        message="Solicitor Fees"
         title={`cf${scenarioIndex}`}
         defaultValue={1600}
       />

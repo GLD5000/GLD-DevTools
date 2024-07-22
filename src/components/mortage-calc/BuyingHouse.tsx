@@ -50,7 +50,7 @@ export default function BuyingHouse({
       <MortgageInput
         message="Solicitor Fees"
         title={`sf${scenarioIndex}`}
-        defaultValue={10000}
+        defaultValue={2400}
       />
       <ScenarioOutput
         message="Stamp Duty"
@@ -60,6 +60,11 @@ export default function BuyingHouse({
       <ScenarioOutput
         message="Total Buying Fees"
         type="buy"
+        scenarioIndex={scenarioIndex}
+      />
+      <ScenarioOutput
+        message="All Fees"
+        type="all"
         scenarioIndex={scenarioIndex}
       />
 
