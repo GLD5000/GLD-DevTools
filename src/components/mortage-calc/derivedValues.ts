@@ -43,8 +43,9 @@ export function calculateDeposit(scenarioIndex: number) {
   const salePrice = Number(getQueryParameter(`sp${scenarioIndex}`));
   const agentFees =
     salePrice * (Number(getQueryParameter(`af${scenarioIndex}`)) * 0.01);
+  const conveyanceFees = Number(getQueryParameter(`cf${scenarioIndex}`));
   const mortgage = Number(getQueryParameter(`cm${scenarioIndex}`));
-  const newValue = salePrice - agentFees - mortgage;
+  const newValue = salePrice - agentFees - mortgage - conveyanceFees;
   // if (newValue) updateQueryParams(`d${scenarioIndex}`, `${newValue}`);
   return newValue;
 }

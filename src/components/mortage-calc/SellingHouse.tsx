@@ -43,6 +43,12 @@ export default function SellingHouse({
         defaultValue={1}
         unit="%"
       />
+      <MortgageInput
+        message="Conveyance Fees"
+        title={`cf${scenarioIndex}`}
+        defaultValue={1600}
+        unit="%"
+      />
     </div>
   );
 }
