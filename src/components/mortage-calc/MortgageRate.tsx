@@ -29,13 +29,18 @@ export default function MortgageRate({
         <MortgageInput
           message="Product Fee"
           title={`f${mortgageSuffix}`}
-          defaultValue={5}
+          defaultValue={1000}
         />
         <MortgageInput
           message="Fixed Term"
           title={`ft${mortgageSuffix}`}
-          defaultValue={5}
+          defaultValue={3}
           unit="yrs"
+        />
+        <MortgageInput
+          message="Overpayment"
+          title={`op${mortgageSuffix}`}
+          defaultValue={0}
         />
         <MortgageOutput
           message="Monthly Cost"

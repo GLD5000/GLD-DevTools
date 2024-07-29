@@ -3,12 +3,15 @@ import MortgageInput from "./MortgageInput";
 import MortgageRate from "./MortgageRate";
 import MortgageLoan from "./MortgageLoan";
 import SellingHouse from "./SellingHouse";
+// import { useState } from "react";
 
 export default function MortgageScenario({
   scenarioIndex,
 }: {
   scenarioIndex: number;
 }) {
+  // const [mortgageRates, setMortgageRates] = useState(1);
+  // useEffect check for rates and add to mortgage rate array
   return (
     <div className="mx-auto max-w-[80rem] w-full grid gap-4">
       <div className="grid gap-2 max-w-[50rem] w-full justify-start">

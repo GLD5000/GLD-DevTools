@@ -22,6 +22,13 @@ export function calculateLTV(scenarioIndex: number) {
 
   return Math.round((100 * principal) / housePrice);
 }
+export function calculateAgentFees(scenarioIndex: number) {
+  const salePrice = Number(getQueryParameter(`sp${scenarioIndex}`));
+  const agentFees =
+    salePrice * (Number(getQueryParameter(`af${scenarioIndex}`)) * 0.01);
+
+  return agentFees;
+}
 
 export function calculatePrincipal(scenarioIndex: number) {
   deleteQueryParams(`p${scenarioIndex}`);
@@ -61,9 +68,28 @@ export function calculatePayment(scenarioIndex: number, mortgageIndex: number) {
   const fixedTerm = Number(getQueryParameter(`ft${mortgageSuffix}`));
   const productFee = Number(getQueryParameter(`f${mortgageSuffix}`));
   const monthlyProductFee = productFee / fixedTerm / 12;
-  const newValue = Math.round(
-    monthlyProductFee + PMT(rate * 0.01, term, principal),
-  );
+  const overPayment = Number(getQueryParameter(`op${mortgageSuffix}`));
+  const pmt = PMT(rate * 0.01, term, principal);
+  const newValue = Math.round(monthlyProductFee + pmt + overPayment);
   // if (newValue) updateQueryParams(`d${scenarioIndex}`, `${newValue}`);
   return newValue;
+}
+export function calculateSellingFees(scenarioIndex: number) {
+  return (
+    calculateAgentFees(scenarioIndex) +
+    Number(getQueryParameter(`cf${scenarioIndex}`))
+  );
+}
+
+export function calculateBuyingFees(scenarioIndex: number) {
+  return (
+    calculateStampDuty(scenarioIndex) +
+    Number(getQueryParameter(`sf${scenarioIndex}`))
+  );
+}
+
+export function calculateAllFees(scenarioIndex: number) {
+  return (
+    calculateBuyingFees(scenarioIndex) + calculateSellingFees(scenarioIndex)
+  );
 }

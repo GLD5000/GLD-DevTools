@@ -18,7 +18,7 @@ export default function MortgageOutput({
     let run = true;
     if (run && window) {
       const currentValue = calculatePayment(scenarioIndex, mortgageIndex);
-      setState(currentValue || -Infinity);
+      setState(currentValue);
     }
     return () => {
       run = false;
@@ -47,6 +47,6 @@ export default function MortgageOutput({
   );
   function refreshValue() {
     const currentValue = calculatePayment(scenarioIndex, mortgageIndex);
-    setState(currentValue || -Infinity);
+    setState(currentValue);
   }
 }

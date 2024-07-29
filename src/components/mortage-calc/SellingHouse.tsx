@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { getQueryParameter, updateQueryParams } from "@/utils/urlQueryParams";
 import MortgageInput from "./MortgageInput";
+import ScenarioOutput from "./ScenarioOutput";
 
 export default function SellingHouse({
   scenarioIndex,
 }: {
   scenarioIndex: number;
 }) {
-  const [currentType, SetCurrentType] = useState("");
+  const [currentType, SetCurrentType] = useState("Loan");
   useEffect(() => {
     let run = true;
     if (run && window) {
@@ -38,15 +39,25 @@ export default function SellingHouse({
         defaultValue={410000}
       />
       <MortgageInput
-        message="Agent Fees"
+        message="Agent Rate"
         title={`af${scenarioIndex}`}
         defaultValue={1}
         unit="%"
       />
+      <ScenarioOutput
+        type="agent"
+        message="Agent Fees"
+        scenarioIndex={scenarioIndex}
+      />
       <MortgageInput
-        message="Conveyance Fees"
+        message="Solicitor Fees"
         title={`cf${scenarioIndex}`}
         defaultValue={1600}
+      />
+      <ScenarioOutput
+        type="sell"
+        message="Total Selling Fees"
+        scenarioIndex={scenarioIndex}
       />
     </div>
   );

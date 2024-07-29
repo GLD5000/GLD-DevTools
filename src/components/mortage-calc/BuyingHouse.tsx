@@ -8,7 +8,7 @@ export default function BuyingHouse({
 }: {
   scenarioIndex: number;
 }) {
-  const [currentType, SetCurrentType] = useState("");
+  const [currentType, SetCurrentType] = useState("Loan");
   useEffect(() => {
     let run = true;
     if (run && window) {
@@ -50,11 +50,21 @@ export default function BuyingHouse({
       <MortgageInput
         message="Solicitor Fees"
         title={`sf${scenarioIndex}`}
-        defaultValue={10000}
+        defaultValue={2400}
       />
       <ScenarioOutput
         message="Stamp Duty"
         type="stamp"
+        scenarioIndex={scenarioIndex}
+      />
+      <ScenarioOutput
+        message="Total Buying Fees"
+        type="buy"
+        scenarioIndex={scenarioIndex}
+      />
+      <ScenarioOutput
+        message="All Fees"
+        type="all"
         scenarioIndex={scenarioIndex}
       />
 
