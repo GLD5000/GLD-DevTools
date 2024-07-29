@@ -29,7 +29,7 @@ export default function LinkTester() {
         Enter a URL and click below to see it open at different screen sizes...
       </span>
       <input
-        className="text-xl"
+        className="text-xl placeholder:text-black text-black"
         value={link}
         onChange={(e) => setLink(e.currentTarget.value)}
         width={200}
