@@ -96,10 +96,10 @@ export default function MortgageInput({
             onBlur={(e) => updateQueryParams(title, `${e.target.value}`)}
           />
         ) : (
-          <div className="flex gap-[2px] m-0 text-black placeholder:text-black bg-[#f0f0f0] rounded w-40 p-1 text-center">
+          <div className="flex gap-[2px] m-0 text-black placeholder:text-black bg-white rounded w-40 p-1 text-center">
             {unit === "£" && unit}
             <input
-              className="inline w-full bg-black bg-[#f0f0f0] px-[2px]"
+              className="inline w-full bg-white px-[2px]"
               type="number"
               value={state}
               onChange={(e) => setState(Number(e.target.value))}
