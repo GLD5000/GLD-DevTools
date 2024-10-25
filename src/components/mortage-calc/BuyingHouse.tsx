@@ -27,7 +27,7 @@ export default function BuyingHouse({
   if (currentType === "Loan") return null;
 
   return (
-    <div className="flex flex-row flex-wrap gap-2 w-full">
+    <div className="flex flex-row flex-wrap gap-2 w-full bg-black">
       {currentType === "Buy" ? (
         <MortgageInput
           message="Deposit"

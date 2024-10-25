@@ -13,8 +13,8 @@ export default function MortgageScenario({
   // const [mortgageRates, setMortgageRates] = useState(1);
   // useEffect check for rates and add to mortgage rate array
   return (
-    <div className="mx-auto max-w-[80rem] w-full grid gap-4">
-      <div className="grid gap-2 max-w-[50rem] w-full justify-start">
+    <div className="mx-auto max-w-[80rem] w-full bg-black grid gap-4">
+      <div className="grid gap-2 max-w-[50rem] w-full bg-black justify-start">
         <MortgageInput
           message={`Scenario  ${scenarioIndex + 1}`}
           title={`s${scenarioIndex}`}

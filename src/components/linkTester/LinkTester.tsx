@@ -19,7 +19,7 @@ export default function LinkTester() {
     "1920",
   ];
   return (
-    <div className="grid gap-2 mx-auto w-full max-w-xl">
+    <div className="grid gap-2 mx-auto w-full bg-black max-w-xl">
       <h2 style={{ all: "unset" }}>
         <span className="block text-3xl text-center mb-4 underline dark:text-white text-black">
           Responsive Screen Size Tester

@@ -50,7 +50,9 @@ export default function ScenarioOutput({
       {`${message}: `}
       <div className="flex gap-[2px] m-0 text-[black] placeholder:text-black bg-[#b0b0b0] rounded w-40 p-1 text-center">
         {unit === "£" && unit}
-        <div className="inline w-full bg-transparent px-[2px]">{state}</div>
+        <div className="inline w-full bg-black bg-transparent px-[2px]">
+          {state}
+        </div>
         {unit !== "£" && unit}
       </div>
     </label>
@@ -62,7 +64,7 @@ export default function ScenarioOutput({
         className="flex gap-[2px] m-0 text-[black] placeholder:text-black bg-[#b0b0b0] rounded w-40 p-1 text-center"
         onClick={refreshValue}
       >
-        <div className="inline w-full bg-transparent px-[2px]">
+        <div className="inline w-full bg-black bg-transparent px-[2px]">
           Calculate...
         </div>
       </button>

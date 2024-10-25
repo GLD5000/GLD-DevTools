@@ -49,7 +49,7 @@ export default function MortgageInput({
       <>
         <label
           className={`grid gap-2 items-center p-0 
-              grid-cols-[1fr_auto] w-full md:w-[min(100%,50rem)]`}
+              grid-cols-[1fr_auto] w-full bg-black md:w-[min(100%,50rem)]`}
         >
           {`${message}: `}
           <select
@@ -81,7 +81,7 @@ export default function MortgageInput({
       <label
         className={`grid gap-2 items-center p-0 ${
           isString
-            ? "grid-cols-[1fr_auto] w-full md:w-[min(100%,50rem)]"
+            ? "grid-cols-[1fr_auto] w-full bg-black md:w-[min(100%,50rem)]"
             : "grid-cols-1 w-40"
         }`}
       >
@@ -89,7 +89,7 @@ export default function MortgageInput({
 
         {isString ? (
           <input
-            className="block m-0 text-white placeholder:text-white bg-transparent border border-current rounded w-full p-1 text-center ml-auto"
+            className="block m-0 text-white placeholder:text-white bg-transparent border border-current rounded w-full bg-black p-1 text-center ml-auto"
             type="text"
             value={state}
             onChange={(e) => setState(e.target.value)}
@@ -99,7 +99,7 @@ export default function MortgageInput({
           <div className="flex gap-[2px] m-0 text-black placeholder:text-black bg-[#f0f0f0] rounded w-40 p-1 text-center">
             {unit === "£" && unit}
             <input
-              className="inline w-full bg-[#f0f0f0] px-[2px]"
+              className="inline w-full bg-black bg-[#f0f0f0] px-[2px]"
               type="number"
               value={state}
               onChange={(e) => setState(Number(e.target.value))}

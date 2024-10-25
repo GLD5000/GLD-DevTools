@@ -26,7 +26,7 @@ export default function MortgageLoan({
   }, [scenarioIndex]);
 
   return (
-    <div className="flex flex-row flex-wrap gap-2 w-full">
+    <div className="flex flex-row flex-wrap gap-2 w-full bg-black">
       {currentType === "Loan" ? (
         <MortgageInput
           message="Loan Amount"

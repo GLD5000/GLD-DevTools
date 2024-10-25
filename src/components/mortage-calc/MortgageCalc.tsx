@@ -27,7 +27,7 @@ export default function MortgageCalc() {
   // }, []);
 
   return (
-    <div className="mx-auto max-w-[80rem] w-full grid gap-4">
+    <div className="mx-auto max-w-[80rem] w-full bg-black grid gap-4">
       <h2>Mortgage Calculator</h2>
       <MortgageScenario scenarioIndex={0} />
       <br />

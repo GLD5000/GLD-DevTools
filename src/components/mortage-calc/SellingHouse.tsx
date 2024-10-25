@@ -27,7 +27,7 @@ export default function SellingHouse({
   if (currentType !== "Sell") return null;
 
   return (
-    <div className="flex flex-row flex-wrap gap-2 w-full">
+    <div className="flex flex-row flex-wrap gap-2 w-full bg-black">
       <MortgageInput
         message="Current Mortgage"
         title={`cm${scenarioIndex}`}

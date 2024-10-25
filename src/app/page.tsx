@@ -8,7 +8,7 @@ import MdxWrapper from "@/components/markdownComponents/MdxWrapper";
 
 export default function Home() {
   return (
-    <main className="grid w-full justify-center h-screen gap-20 items-center p-24 overflow-y-scroll smooth-scroll-gld">
+    <main className="grid w-full bg-black justify-center h-screen gap-20 items-center p-24 overflow-y-scroll smooth-scroll-gld">
       <MdxWrapper>
         <Contents />
       </MdxWrapper>
