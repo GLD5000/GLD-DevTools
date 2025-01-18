@@ -8,7 +8,7 @@ import {
 export function calculateStampDuty(scenarioIndex: number) {
   const housePrice = Number(getQueryParameter(`hp${scenarioIndex}`));
   if (housePrice <= 250000) return 0;
-  const lowerTier = Math.max(0, Math.min(925000, housePrice) - 250000) * 0.05;
+  const lowerTier = Math.max(0, Math.min(925000, housePrice) - 125000) * 0.05;
   const middleTier = Math.max(0, Math.min(1500000, housePrice) - 925000) * 0.1;
   const upperTier = Math.max(0, housePrice - 1500000) * 0.12;
   const newValue = lowerTier + middleTier + upperTier;
